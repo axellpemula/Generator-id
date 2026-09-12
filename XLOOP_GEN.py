@@ -513,12 +513,12 @@ def print_acc(idx, uid, aid, name, status, score=0, cid=None, custom="", emoji="
     
     with PRINT_LOCK:
         if status in ("OK", "NORMAL"):
-            line = f"{DR}[{idx:^6}]{R}  {WH}{str(aid):<15}{R}  {badge}"
+            line = f" {DR}[{idx:^1}]{R}   {WH}{str(aid):<15}{R}  {badge}"
         elif status == "COUPLE":
-            line = f"{LP}[{idx:^6}]{R}  {LP}{str(aid):<15}{R}  {badge}"
+            line = f" {LP}[{idx:^1}]{R}   {LP}{str(aid):<15}{R}  {badge}"
         else:
             # ID diwarnai sesuai rarity
-            line = f"{sc}[{idx:^1}]{R}  {color}{str(aid):<15}{R}  {badge}    {sc}{score}{R}"
+            line = f" {sc}[{idx:^1}]{R}   {color}{str(aid):<15}{R}  {badge}    {sc}{score}{R}"
         sys.stdout.write(line + "\n")
         sys.stdout.flush()
 
@@ -1108,7 +1108,7 @@ def gen_flow():
         print(f"\n{GN}┌{'─'*W}┐{R}")
         print(f"{GN}│{R}  {LG} GENERATING{R} {WH}{total}{R} accounts in {WH}{region_display}{R}")
         print(f"{GN}└{'─'*W}┘{R}")
-        print(f"{DR}  IDX    ACCOUNT_ID{R}")
+        print(f"{DR} IDX   ACCOUNT_ID{R}")
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=tc) as ex:
             futures = []
