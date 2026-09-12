@@ -17,7 +17,7 @@ echo -e "${CYAN}=========================================${RESET}"
 echo ""
 
 echo -e "${YELLOW}[+] Memperbarui sistem Termux...${RESET}"
-pkg update -y && pkg upgrade -y
+pkg update && pkg upgrade -y
 
 echo -e "${YELLOW}[+] Memasang dependensi dasar...${RESET}"
 pkg install python clang make git libcrypt curl -y
